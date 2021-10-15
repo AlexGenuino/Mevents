@@ -3,14 +3,16 @@ using System;
 using Api.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Data.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20211015185014_User_Migration")]
+    partial class User_Migration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,9 +21,9 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Api.Domain.Entities.UserEntity", b =>
                 {
-                    b.Property<string>("CPF")
-                        .HasColumnType("varchar(11) CHARACTER SET utf8mb4")
-                        .HasMaxLength(11);
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
 
                     b.Property<DateTime?>("CreateAt")
                         .HasColumnType("datetime(6)");
@@ -30,31 +32,15 @@ namespace Data.Migrations
                         .HasColumnType("varchar(100) CHARACTER SET utf8mb4")
                         .HasMaxLength(100);
 
-                    b.Property<Guid>("Id")
-                        .HasColumnType("char(36)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("varchar(60) CHARACTER SET utf8mb4")
                         .HasMaxLength(60);
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("varchar(60) CHARACTER SET utf8mb4")
-                        .HasMaxLength(60);
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("varchar(11) CHARACTER SET utf8mb4")
-                        .HasMaxLength(11);
-
                     b.Property<DateTime?>("UpdateAt")
                         .HasColumnType("datetime(6)");
 
-                    b.HasKey("CPF");
-
-                    b.HasIndex("CPF")
-                        .IsUnique();
+                    b.HasKey("Id");
 
                     b.HasIndex("Email")
                         .IsUnique();

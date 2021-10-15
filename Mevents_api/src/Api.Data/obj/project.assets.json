@@ -5153,11 +5153,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ale Genuino\\Desktop\\Mevents_api\\src\\Api.Data\\Data.csproj",
+      "projectUniqueName": "C:\\Users\\Ale Genuino\\Desktop\\Nova pasta (6)\\Mevents_api\\src\\Api.Data\\Data.csproj",
       "projectName": "Data",
-      "projectPath": "C:\\Users\\Ale Genuino\\Desktop\\Mevents_api\\src\\Api.Data\\Data.csproj",
+      "projectPath": "C:\\Users\\Ale Genuino\\Desktop\\Nova pasta (6)\\Mevents_api\\src\\Api.Data\\Data.csproj",
       "packagesPath": "C:\\Users\\Ale Genuino\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ale Genuino\\Desktop\\Mevents_api\\src\\Api.Data\\obj\\",
+      "outputPath": "C:\\Users\\Ale Genuino\\Desktop\\Nova pasta (6)\\Mevents_api\\src\\Api.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -5180,8 +5180,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Ale Genuino\\Desktop\\Mevents_api\\src\\Api.Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Ale Genuino\\Desktop\\Mevents_api\\src\\Api.Domain\\Domain.csproj"
+            "C:\\Users\\Ale Genuino\\Desktop\\Nova pasta (6)\\Mevents_api\\src\\Api.Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Ale Genuino\\Desktop\\Nova pasta (6)\\Mevents_api\\src\\Api.Domain\\Domain.csproj"
             }
           }
         }

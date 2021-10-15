@@ -10,14 +10,29 @@ namespace Api.Data.Mapping
         {
             builder.ToTable("User");
 
-            builder.HasKey(u => u.Id);
+            builder.HasKey(u => u.CPF);
 
             builder.HasIndex(u => u.Email)
                 .IsUnique();
             
+            builder.HasIndex(u => u.CPF)
+                .IsUnique();
+                
             builder.Property(u => u.Name)
                 .IsRequired()
                 .HasMaxLength(60);
+
+            builder.Property(u => u.Password)
+                .IsRequired()
+                .HasMaxLength(60);
+
+            builder.Property(u => u.Phone)
+                .IsRequired()
+                .HasMaxLength(11);
+
+            builder.Property(u => u.CPF)
+                .IsRequired()
+                .HasMaxLength(11);
             
             builder.Property(u => u.Email)
                 .HasMaxLength(100);

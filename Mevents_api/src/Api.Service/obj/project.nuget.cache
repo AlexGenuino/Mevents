@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oaoNDSGwKhVX9Eqj/ADRDAcAryO+995dSbSw1Ev4R6tl6ZiExlSwUD0QmH9QE5RbEZud+Ii56jBt47oSSBFcRg==",
+  "dgSpecHash": "u8/leR/4+5Qyp0YVBWMnBXXudE9icTBHJHLUxJrubp+TxQGqax+CFhHWiR1/OUYhfIIy6wRqIbI6o5KEzpd5Tg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ale Genuino\\Desktop\\Mevents_api\\src\\Api.Service\\Service.csproj",
+  "projectFilePath": "C:\\Users\\Ale Genuino\\Desktop\\Nova pasta (6)\\Mevents_api\\src\\Api.Service\\Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ale Genuino\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Ale Genuino\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
