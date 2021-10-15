@@ -68,6 +68,7 @@ namespace Api.Application.Controllers
                  var result = await _service.Post(user);
                  if(result != null)
                  {
+                     result.Password = "";
                      return Created(new Uri(Url.Link("GetById", new {id = result.Id})), result);
                  }
                  else
