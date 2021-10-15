@@ -1,0 +1,30 @@
+C:\Users\Ale Genuino\Desktop\apiapsnetcore - DDD\src\Api.Data\bin\Debug\netcoreapp3.1\Data.deps.json
+C:\Users\Ale Genuino\Desktop\apiapsnetcore - DDD\src\Api.Data\bin\Debug\netcoreapp3.1\Data.dll
+C:\Users\Ale Genuino\Desktop\apiapsnetcore - DDD\src\Api.Data\bin\Debug\netcoreapp3.1\Data.pdb
+C:\Users\Ale Genuino\Desktop\apiapsnetcore - DDD\src\Api.Data\obj\Debug\netcoreapp3.1\Data.csproj.AssemblyReference.cache
+C:\Users\Ale Genuino\Desktop\apiapsnetcore - DDD\src\Api.Data\obj\Debug\netcoreapp3.1\Data.AssemblyInfoInputs.cache
+C:\Users\Ale Genuino\Desktop\apiapsnetcore - DDD\src\Api.Data\obj\Debug\netcoreapp3.1\Data.AssemblyInfo.cs
+C:\Users\Ale Genuino\Desktop\apiapsnetcore - DDD\src\Api.Data\obj\Debug\netcoreapp3.1\Data.csproj.CoreCompileInputs.cache
+C:\Users\Ale Genuino\Desktop\apiapsnetcore - DDD\src\Api.Data\obj\Debug\netcoreapp3.1\Data.dll
+C:\Users\Ale Genuino\Desktop\apiapsnetcore - DDD\src\Api.Data\obj\Debug\netcoreapp3.1\Data.pdb
+C:\Users\Ale Genuino\Desktop\apiapsnetcore - DDD\src\Api.Data\bin\Debug\netcoreapp3.1\Data.runtimeconfig.json
+C:\Users\Ale Genuino\Desktop\apiapsnetcore - DDD\src\Api.Data\bin\Debug\netcoreapp3.1\Data.runtimeconfig.dev.json
+C:\Users\Ale Genuino\Desktop\apiapsnetcore - DDD\src\Api.Data\obj\Debug\netcoreapp3.1\Data.genruntimeconfig.cache
+C:\Users\Ale Genuino\Desktop\apiapsnetcore - DDD\src\Api.Data\bin\Debug\netcoreapp3.1\Domain.dll
+C:\Users\Ale Genuino\Desktop\apiapsnetcore - DDD\src\Api.Data\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\Users\Ale Genuino\Desktop\apiapsnetcore - DDD\src\Api.Data\obj\Debug\netcoreapp3.1\Data.csproj.CopyComplete
+C:\Users\Ale Genuino\Desktop\Mevents_api\src\Api.Data\bin\Debug\netcoreapp3.1\Data.deps.json
+C:\Users\Ale Genuino\Desktop\Mevents_api\src\Api.Data\bin\Debug\netcoreapp3.1\Data.runtimeconfig.json
+C:\Users\Ale Genuino\Desktop\Mevents_api\src\Api.Data\bin\Debug\netcoreapp3.1\Data.runtimeconfig.dev.json
+C:\Users\Ale Genuino\Desktop\Mevents_api\src\Api.Data\bin\Debug\netcoreapp3.1\Data.dll
+C:\Users\Ale Genuino\Desktop\Mevents_api\src\Api.Data\bin\Debug\netcoreapp3.1\Data.pdb
+C:\Users\Ale Genuino\Desktop\Mevents_api\src\Api.Data\bin\Debug\netcoreapp3.1\Domain.dll
+C:\Users\Ale Genuino\Desktop\Mevents_api\src\Api.Data\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\Users\Ale Genuino\Desktop\Mevents_api\src\Api.Data\obj\Debug\netcoreapp3.1\Data.csproj.AssemblyReference.cache
+C:\Users\Ale Genuino\Desktop\Mevents_api\src\Api.Data\obj\Debug\netcoreapp3.1\Data.AssemblyInfoInputs.cache
+C:\Users\Ale Genuino\Desktop\Mevents_api\src\Api.Data\obj\Debug\netcoreapp3.1\Data.AssemblyInfo.cs
+C:\Users\Ale Genuino\Desktop\Mevents_api\src\Api.Data\obj\Debug\netcoreapp3.1\Data.csproj.CoreCompileInputs.cache
+C:\Users\Ale Genuino\Desktop\Mevents_api\src\Api.Data\obj\Debug\netcoreapp3.1\Data.csproj.CopyComplete
+C:\Users\Ale Genuino\Desktop\Mevents_api\src\Api.Data\obj\Debug\netcoreapp3.1\Data.dll
+C:\Users\Ale Genuino\Desktop\Mevents_api\src\Api.Data\obj\Debug\netcoreapp3.1\Data.pdb
+C:\Users\Ale Genuino\Desktop\Mevents_api\src\Api.Data\obj\Debug\netcoreapp3.1\Data.genruntimeconfig.cache
