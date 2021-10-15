@@ -15,7 +15,7 @@ namespace Api.Application.Controllers
         {
             if(!ModelState.IsValid)
             {
-                return BadRequest(ModelState); //400 BAD REQUEST
+                return BadRequest(ModelState);
             }
             try
             {
