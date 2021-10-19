@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "dcSpP0QilCTIW1W8egZkBrkhdQ47nOTsF4I+851YZ8tqvtm9Rngh3tEkuO3185MkuToQ0WYr3Y/rPNQF2dNX6A==",
+  "dgSpecHash": "8ILD87dtc4qFCu92R6sFSqtq8YFyAXpMxyU2e49GcCi+BR8fJaY0X3i25dhyujCIoNlYj8ov2Ht27Axp+0ZZ+Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ale Genuino\\Desktop\\Nova pasta (6)\\Mevents_api\\src\\Api.Domain\\Domain.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "c:\\Users\\Ale Genuino\\Desktop\\Nova pasta (6)\\Mevents_api\\src\\Api.Domain\\Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ale Genuino\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Ale Genuino\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.13.1\\microsoft.identitymodel.jsonwebtokens.6.13.1.nupkg.sha512",
+    "C:\\Users\\Ale Genuino\\.nuget\\packages\\microsoft.identitymodel.logging\\6.13.1\\microsoft.identitymodel.logging.6.13.1.nupkg.sha512",
+    "C:\\Users\\Ale Genuino\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.13.1\\microsoft.identitymodel.tokens.6.13.1.nupkg.sha512",
+    "C:\\Users\\Ale Genuino\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.13.1\\system.identitymodel.tokens.jwt.6.13.1.nupkg.sha512",
+    "C:\\Users\\Ale Genuino\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

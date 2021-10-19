@@ -143,3 +143,10 @@ C:\Users\Ale Genuino\Desktop\Nova pasta (6)\Mevents_api\src\Api.Application\obj\
 C:\Users\Ale Genuino\Desktop\Nova pasta (6)\Mevents_api\src\Api.Application\obj\Debug\net5.0\ref\application.dll
 C:\Users\Ale Genuino\Desktop\Nova pasta (6)\Mevents_api\src\Api.Application\obj\Debug\net5.0\application.pdb
 C:\Users\Ale Genuino\Desktop\Nova pasta (6)\Mevents_api\src\Api.Application\obj\Debug\net5.0\application.genruntimeconfig.cache
+C:\Users\Ale Genuino\Desktop\Nova pasta (6)\Mevents_api\src\Api.Application\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Ale Genuino\Desktop\Nova pasta (6)\Mevents_api\src\Api.Application\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Ale Genuino\Desktop\Nova pasta (6)\Mevents_api\src\Api.Application\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Ale Genuino\Desktop\Nova pasta (6)\Mevents_api\src\Api.Application\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Ale Genuino\Desktop\Nova pasta (6)\Mevents_api\src\Api.Application\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Ale Genuino\Desktop\Nova pasta (6)\Mevents_api\src\Api.Application\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Ale Genuino\Desktop\Nova pasta (6)\Mevents_api\src\Api.Application\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll

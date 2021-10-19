@@ -3,6 +3,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Api.Domain.Entities;
 using Api.Domain.Interfaces.Services.User;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Application.Controllers
@@ -38,7 +39,6 @@ namespace Api.Application.Controllers
         
         [HttpGet]
         [Route ("{id}", Name = "GetById")]
-
         public async Task<ActionResult> Get (Guid id)
         {
             if(!ModelState.IsValid)
@@ -56,6 +56,7 @@ namespace Api.Application.Controllers
 
         }
         
+        [AllowAnonymous]
         [HttpPost]
         public async Task<ActionResult> Post ([FromBody] UserEntity user)
         {
@@ -73,7 +74,34 @@ namespace Api.Application.Controllers
                  }
                  else
                  {
-                     return BadRequest();
+                    return BadRequest();
+                 }
+            }
+            catch (ArgumentException e)
+            { 
+                return StatusCode ((int) HttpStatusCode.InternalServerError, e.Message);
+            }   
+
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> Put ([FromBody] UserEntity user)
+        {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                 var result = await _service.Put(user);
+                 if(result != null)
+                 {
+                    result.Password = "";
+                    return Ok(result);
+                 }
+                 else
+                 {
+                    return BadRequest();
                  }
             }
             catch (ArgumentException e)
@@ -83,5 +111,22 @@ namespace Api.Application.Controllers
 
         }
         
+        [HttpDelete ("{id}")]
+        public async Task<ActionResult> Delete (Guid id)
+        {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                 return Ok(await _service.Delete(id));
+            }
+            catch (ArgumentException e)
+            { 
+                return StatusCode ((int) HttpStatusCode.InternalServerError, e.Message);
+            }   
+
+        }
     }
 }

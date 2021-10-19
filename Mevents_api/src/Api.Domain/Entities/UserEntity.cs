@@ -11,6 +11,6 @@ namespace Api.Domain.Entities
 
         public string CPF { get; set; }
 
-         public string Phone { get; set; }
+        public string Phone { get; set; }
     }
 }
