@@ -23,6 +23,7 @@ using Api.Domain.Security;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Domain.Repository;
 
 namespace application
 {
@@ -85,6 +86,7 @@ namespace application
             //Dependency Injection
             services.AddScoped(typeof (IRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IUserRepository, UserImplementation>();
+            services.AddScoped<IAdminRepository, AdminImplementation>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<ILoginService, LoginService>();
 

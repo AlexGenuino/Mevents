@@ -18,7 +18,8 @@ namespace Api.Application.Controllers
         {
             _service = service;
         }
-        [Authorize("Usuario")]
+        [Authorize("Bearer")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<ActionResult> GetAll()
         {
@@ -36,7 +37,9 @@ namespace Api.Application.Controllers
                 return StatusCode ((int) HttpStatusCode.InternalServerError, e.Message);
             }
         }
-        
+
+        [Authorize("Bearer")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         [Route ("{id}", Name = "GetById")]
         public async Task<ActionResult> Get (Guid id)
@@ -84,6 +87,8 @@ namespace Api.Application.Controllers
 
         }
 
+        [Authorize("Bearer")]
+        [Authorize(Roles = "Usuario")]
         [HttpPut]
         public async Task<ActionResult> Put ([FromBody] UserEntity user)
         {
@@ -110,7 +115,9 @@ namespace Api.Application.Controllers
             }   
 
         }
-        
+
+        [Authorize("Bearer")]
+        [Authorize(Roles = "Admin")]
         [HttpDelete ("{id}")]
         public async Task<ActionResult> Delete (Guid id)
         {
