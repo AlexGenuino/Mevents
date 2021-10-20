@@ -38,10 +38,12 @@ namespace application
         
         public void ConfigureServices(IServiceCollection services)
         {
-           
+            var serverVersion = new MySqlServerVersion(new System.Version(8, 0, 26));
+            var connectionString = "Server=localhost;Port=3306;Database=mevents_db;Uid=root;Pwd=root123";
+            
             services.AddDbContext<MyContext>(
-                options => options.UseMySql("Server=localhost;Port=3306;Database=Mevents_db;Uid=root;Pwd=root123")
-            );
+                (e) => e.UseMySql(connectionString, serverVersion)
+            ); 
 
             var signingConfigurations = new SigningConfigurations();
             services.AddSingleton(signingConfigurations);

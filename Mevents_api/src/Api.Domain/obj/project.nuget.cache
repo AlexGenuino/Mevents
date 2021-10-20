@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8ILD87dtc4qFCu92R6sFSqtq8YFyAXpMxyU2e49GcCi+BR8fJaY0X3i25dhyujCIoNlYj8ov2Ht27Axp+0ZZ+Q==",
+  "dgSpecHash": "0KdrTcwAXWoTVV1hKQMFIYewj+w7J+/JXRVzOvG1M+gIBjqtHXCPLUMac4qtUXmX3+BE8VDxOsSzsPsnMG0hmg==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Ale Genuino\\Desktop\\Nova pasta (6)\\Mevents_api\\src\\Api.Domain\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\Ale Genuino\\Desktop\\Nova pasta (6)\\Mevents_api\\src\\Api.Domain\\Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ale Genuino\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Ale Genuino\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.13.1\\microsoft.identitymodel.jsonwebtokens.6.13.1.nupkg.sha512",
