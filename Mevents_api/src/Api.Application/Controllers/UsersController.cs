@@ -72,8 +72,8 @@ namespace Api.Application.Controllers
                  var result = await _service.Post(user);
                  if(result != null)
                  {
-                     result.Password = "";
-                     return Created(new Uri(Url.Link("GetById", new {id = result.Id})), result);
+ 
+                     return Ok(result);
                  }
                  else
                  {
@@ -101,7 +101,6 @@ namespace Api.Application.Controllers
                  var result = await _service.Put(user);
                  if(result != null)
                  {
-                    result.Password = "";
                     return Ok(result);
                  }
                  else

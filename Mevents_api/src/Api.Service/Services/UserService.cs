@@ -7,6 +7,7 @@ using Api.Domain.Entities;
 using Api.Domain.Interfaces;
 using Api.Domain.Interfaces.Services.User;
 using Api.Service.Services.Encripty;
+using Domain.Response;
 
 namespace Api.Service.Services
 {
@@ -22,25 +23,116 @@ namespace Api.Service.Services
             return await _repository.DeleteAsync(id);
         }
 
-        public async Task<UserEntity> Get(Guid id)
+        public async Task<UserResponse> Get(Guid id)
         {
-            return await _repository.SelectAsync(id);
+            try
+            {
+                UserEntity User = new UserEntity();
+                User.Id = id;
+                var Result = await _repository.SelectAsync(User.Id);
+                if (Result != null)
+                {
+                    return new UserResponse
+                         (
+                             "Sucess",
+                             true,
+                             Result.Name,
+                             Result.Email,
+                             Result.CPF,
+                             Result.Phone,
+                             Result.Tickets
+                       );
+                }
+                return new UserResponse("Falha ao buscar o usuario");
+            }
+            catch(Exception e)
+            {
+                return new UserResponse("Falha ao buscar o usuario" + e.Message);
+            }
         }
 
-        public async Task<IEnumerable<UserEntity>> GetAll()
+        public async Task<IEnumerable<UserResponse>> GetAll()
         {
-            return await _repository.SelectAsync();
+
+            var ListResponseUsers = new List<UserResponse>();
+            var Users = await _repository.SelectAsync();
+            if(Users != null) 
+            {
+                foreach(var user in Users)
+                {
+                    ListResponseUsers.Add(new UserResponse
+                    (
+                        "Sucess",
+                        true,
+                        user.Name,
+                        user.Email,
+                        user.CPF,
+                        user.Phone,
+                        user.Tickets
+                    ));
+                }
+
+                return ListResponseUsers;
+            }
+
+            return null;
         }
 
-        public async Task<UserEntity> Post(UserEntity user)
+        public async Task<UserResponse> Post(UserEntity user)
         {
-            user.Password = EncriptyPassword.CreateMD5(user.Password);
-            return await _repository.InsertAsync(user);
+            try
+            {
+                user.Password = EncriptyPassword.CreateMD5(user.Password);
+                var User = await _repository.InsertAsync(user);
+                if (User != null)
+                {
+                    return new UserResponse
+                    (
+                        "Sucess",
+                        true,
+                        User.Name,
+                        User.Email,
+                        User.CPF,
+                        User.Phone,
+                        User.Tickets
+                    );
+
+                }
+                return new UserResponse("Falha ao atualizar o usuario"); 
+            }
+            catch (Exception e)
+            {
+                return new UserResponse("Falha ao atualizar o usuario" + e.Message);
+            }
         }
 
-        public async Task<UserEntity> Put(UserEntity user)
+        public async Task<UserResponse> Put(UserEntity user)
         {
-            return await _repository.UpdateAsync(user);
+            try
+            {
+                user.Password = EncriptyPassword.CreateMD5(user.Password);
+                var User = await _repository.UpdateAsync(user);
+                if (User != null)
+                {
+                    return new UserResponse
+                    (
+                        "Sucess",
+                        true,
+                        User.Name,
+                        User.Email,
+                        User.CPF,
+                        User.Phone,
+                        User.Tickets
+                    );
+
+                }
+                return null;
+            }
+            catch(Exception e)
+            {
+                return new UserResponse("Falha ao atualizar o usuario" + e.Message);
+            }
+           
         }
 
     }
