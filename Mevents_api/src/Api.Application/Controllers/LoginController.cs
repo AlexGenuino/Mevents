@@ -5,6 +5,7 @@ using Api.Domain.Dtos;
 using Api.Domain.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Service.Services.SendEmail;
 
 namespace Api.Application.Controllers
 {
@@ -12,6 +13,8 @@ namespace Api.Application.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
+
+        
         [AllowAnonymous]
         [HttpPost]
         public async Task<object> Login ([FromBody] LoginDto loginDto, [FromServices] ILoginService service )
@@ -42,5 +45,7 @@ namespace Api.Application.Controllers
                 return StatusCode ((int) HttpStatusCode.InternalServerError, e.Message);
             }
         }
+        
+        
     }
 }

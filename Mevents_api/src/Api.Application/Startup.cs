@@ -39,6 +39,16 @@ namespace application
         
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                // this defines a CORS policy called "default"
+                options.AddPolicy("default", policy =>
+                {
+                    policy.WithOrigins("http://localhost:8080")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
             var serverVersion = new MySqlServerVersion(new System.Version(8, 0, 26));
             var connectionString = "Server=localhost;Port=3306;Database=mevents_db;Uid=root;Pwd=root123";
             
@@ -103,7 +113,7 @@ namespace application
             {
                 app.UseDeveloperExceptionPage();  
             }
-
+            app.UseCors("default");
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
