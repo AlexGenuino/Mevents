@@ -23,6 +23,7 @@ using Api.Domain.Security;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Domain.Repository;
 
 namespace application
 {
@@ -38,10 +39,22 @@ namespace application
         
         public void ConfigureServices(IServiceCollection services)
         {
-           
+            services.AddCors(options =>
+            {
+                // this defines a CORS policy called "default"
+                options.AddPolicy("default", policy =>
+                {
+                    policy.WithOrigins("http://localhost:8080")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
+            var serverVersion = new MySqlServerVersion(new System.Version(8, 0, 26));
+            var connectionString = "Server=localhost;Port=3306;Database=mevents_db;Uid=root;Pwd=root123";
+            
             services.AddDbContext<MyContext>(
-                options => options.UseMySql("Server=localhost;Port=3306;Database=Mevents_db;Uid=root;Pwd=root123")
-            );
+                (e) => e.UseMySql(connectionString, serverVersion)
+            ); 
 
             var signingConfigurations = new SigningConfigurations();
             services.AddSingleton(signingConfigurations);
@@ -83,6 +96,7 @@ namespace application
             //Dependency Injection
             services.AddScoped(typeof (IRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IUserRepository, UserImplementation>();
+            services.AddScoped<IAdminRepository, AdminImplementation>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<ILoginService, LoginService>();
 
@@ -99,7 +113,7 @@ namespace application
             {
                 app.UseDeveloperExceptionPage();  
             }
-
+            app.UseCors("default");
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

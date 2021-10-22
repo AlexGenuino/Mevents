@@ -9,6 +9,7 @@ using Api.Domain.Repository;
 using Api.Domain.Security;
 using Api.Domain.Secutiry;
 using Api.Service.Services.Encripty;
+using Domain.Repository;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -16,15 +17,17 @@ namespace Api.Service.Services
 {
     public class LoginService : ILoginService
     {
-        private IUserRepository _repository;
+        private IUserRepository _repositoryUser;
+        private IAdminRepository _repositoryAdmin;
         private SigningConfigurations _signingConfigurations;
         private TokenConfigurations _tokenConfigurations;
         private IConfiguration _configuration {get;}
         
-        public LoginService(IUserRepository repository, SigningConfigurations signingConfigurations, TokenConfigurations tokenConfigurations,
+        public LoginService(IUserRepository Userrepository, IAdminRepository Admrepository, SigningConfigurations signingConfigurations, TokenConfigurations tokenConfigurations,
         IConfiguration configuration)
         {
-            _repository = repository;
+            _repositoryUser = Userrepository;
+            _repositoryAdmin = Admrepository;
             _signingConfigurations = signingConfigurations;
             _tokenConfigurations = tokenConfigurations;
             _configuration = configuration;
@@ -37,16 +40,42 @@ namespace Api.Service.Services
             {
                 var ResultUser = new UserEntity();
                 user.Password = EncriptyPassword.CreateMD5(user.Password);
-                ResultUser = await _repository.Login(user.Email, user.Password);
-
-                if(ResultUser == null)
-                {   
-                    var Result = new
+                ResultUser = await _repositoryUser.Login(user.Email, user.Password);
+                
+                if (ResultUser == null)
+                {
+                    var ResultAdmin = new Admin();
+                    ResultAdmin = await _repositoryAdmin.Login(user.Email, user.Password);
+                    
+                    if (ResultAdmin == null)
                     {
-                        Autheticated = false,
-                        Message = "Falha ao autenticar"
-                    };
-                    return Result;
+                        var Result = new
+                        {
+                            Autheticated = false,
+                            Message = "Falha ao autenticar"
+                        };
+
+                        return Result;
+                    }
+                    else
+                    {
+                        ClaimsIdentity identity = new ClaimsIdentity(
+                        new GenericIdentity(user.Email),
+                        new[]
+                        {
+                            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                            new Claim(JwtRegisteredClaimNames.UniqueName, user.Email),
+                            new Claim(ClaimTypes.Role, "Admin"),
+                        }
+                    );
+
+                        DateTime createDate = DateTime.UtcNow;
+                        DateTime expirationDate = createDate + TimeSpan.FromSeconds(_tokenConfigurations.Seconds);
+
+                        var handler = new JwtSecurityTokenHandler();
+                        string token = CreateToken(identity, createDate, expirationDate, handler);
+                        return SuccessObjectAdmin(createDate, expirationDate, token, ResultAdmin);
+                    }
                 }
                 else
                 {
@@ -56,6 +85,7 @@ namespace Api.Service.Services
                         {
                             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                             new Claim(JwtRegisteredClaimNames.UniqueName, user.Email),
+                            new Claim(ClaimTypes.Role, "Usuario"),
                         }
                     );
 
@@ -64,7 +94,7 @@ namespace Api.Service.Services
 
                     var handler = new JwtSecurityTokenHandler();
                     string token = CreateToken(identity, createDate, expirationDate, handler);
-                    return SuccessObject(createDate, expirationDate, token, ResultUser);
+                    return SuccessObjectUser(createDate, expirationDate, token, ResultUser);
                 }
             }
             else
@@ -93,7 +123,7 @@ namespace Api.Service.Services
             return token;
         }
 
-        private object SuccessObject(DateTime createDate, DateTime expirationDate, string token, UserEntity user)
+        private object SuccessObjectUser(DateTime createDate, DateTime expirationDate, string token, UserEntity user)
         {
             return new
             {
@@ -104,6 +134,20 @@ namespace Api.Service.Services
                 userName = user.Email,
                 name = user.Name,
                 message = "Usuário Logado com sucesso"
+            };
+        }
+
+        private object SuccessObjectAdmin(DateTime createDate, DateTime expirationDate, string token, Admin admin)
+        {
+            return new
+            {
+                authenticated = true,
+                create = createDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                expiration = expirationDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                accessToken = token,
+                userName = admin.Email,
+                name = admin.Name,
+                message = "Administrador Logado com sucesso"
             };
         }
     }

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Api.Domain.Entities
 {
     public class UserEntity : BaseEntity
@@ -12,5 +14,7 @@ namespace Api.Domain.Entities
         public string CPF { get; set; }
 
         public string Phone { get; set; }
+
+        public ICollection<Tickets> Tickets { get; set; }
     }
 }
